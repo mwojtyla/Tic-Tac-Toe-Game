@@ -69,12 +69,20 @@ public class Board {
                                  {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
                                   {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}};
 
-    public void userChoseBoard(UserCommunication userCommunication){
+   /* public void userChoseBoard(UserCommunication userCommunication){
         if (userCommunication.userChoseBoardSize() == 1){
             board = board1;
         } else {board = board2;};
-    }
+    }*/
 
+   public void userChoseBoard(UserCommunication userCommunication){
+       int size = userCommunication.userChoseBoardSize();
+           if (size == 1){
+               board = board1;
+           } if (size == 2) {
+               board = board2;
+           }
+   }
     public char[][] getBoard() {
         return board;
     }

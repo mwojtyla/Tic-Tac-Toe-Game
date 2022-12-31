@@ -67,16 +67,33 @@ public class UserCommunication {
     public UserCommunication(UserInput userInput) {
         this.userInput = userInput;
     }
-        public int userChoseBoardSize() {
+       /* public int userChoseBoardSize() {
             System.out.println("Choose the size of board: for 3x3 enter 1 for 10x10 enter 2");
             return userInput.getNextInt();
+        }*/
+    public int userChoseBoardSize() {
+        while (true) {
+            System.out.println("Choose the size of board: for 3x3 enter 1 for 10x10 enter 2. ");
+            try{int size = userInput.getNextInt();
+                if (size == 1 || size == 2) {
+                    return size;
+                }
+                System.out.println("Wrong number. Choose again (1 or 2):");
+                } catch (InputMismatchException e) {
+                    System.out.println("Wrong value. Choose again (1 or 2):");
+                    userInput.getNext();
+                }
         }
-        int amountOfSymbolWin;
+    }
+
+
+
+        /*int amountOfSymbolWin;
         public int amountOfSymbolWin(){
             if (userChoseBoardSize() ==1){
                 return amountOfSymbolWin = 3;
             } return amountOfSymbolWin = 5;
-        }
+        }*/
     public void startOfTheGame(){
         System.out.println("Welcome in the game TIC-TAC-TOE!" + "\n"
                 + "Your symbol: X. "
