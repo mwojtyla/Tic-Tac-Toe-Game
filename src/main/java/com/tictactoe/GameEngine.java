@@ -22,32 +22,32 @@ public class GameEngine {
 
 
         while (win) {
-            // wyświetlanie numeru rundy
+            // display round number
             userCommunication.roundNumberInfo(round);
 
-            // wyświetlenie informacji o ruchu użytkownika
+            // display information about user move
             userCommunication.userMoveInfo();
 
-            // sprawdzanie wartości podanych przez użytkownika
+            // checking the values entered by user
             board.moveCheck(userCommunication, x, board);
 
-            // rysowanie planszy w prawidłowymi wartościami podanymi przez użytkownika
+            // draw board with correct values entered by user
             board.drawBoard();
 
-            // licznik prawidłowych ruchów
+            // correct moves counter
             totalMoves++;
 
-            // sprawdzenie wygranej symbolu X lub remisu
+            // checking the symbol X win or draw
             String resultForX = resultCheck.checkWinOrDraw(resultCheck, board, x, totalMoves);
             if (resultForX!=null){
                 System.out.println(resultForX);
                 break;
             }
 
-            // wyświetlenie informacji o ruchu komputera
+            // display information about computer move
             userCommunication.computerMoveInfo();
 
-            // losowanie współrzędnych dla ruchu komputera
+            // randomization the numbers for computer move
             boolean fieldFree = false;
             Random random = new Random();
             while (!fieldFree) {
@@ -60,17 +60,17 @@ public class GameEngine {
                 }
             }
 
-            // sprawdzenie wygranej computera (symbolu O)
+            // checking the computer (symbol O) win
             if (resultCheck.checkAll(board,o)) {
                 String resultForO = Result.wonComputer;
                 System.out.println(resultForO);
                 win = false;
                 break;}
 
-            // licznik prawidłowych ruchów
+            // correct moves counter
             totalMoves++;
 
-            // licznik rund
+            // round counter
             round++;
         }
     }

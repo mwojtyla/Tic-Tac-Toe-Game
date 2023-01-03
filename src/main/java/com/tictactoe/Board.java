@@ -55,7 +55,7 @@ public class Board {
         }
     }
 
-    //sprawdzanie czy ruch użytkownika jest poprawny - czy pole nie jest już zajęte
+    // checking if the user's move is correct - whether the field is not already occupied
     public void moveCheck(UserCommunication userCommunication, char symbol, Board boardChosed) {
 
         int row = userCommunication.userChoseRow(boardChosed);
