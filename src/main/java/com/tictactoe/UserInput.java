@@ -9,5 +9,4 @@ public class UserInput {
     public String getNext(){
         return this.scanner.next();
     }
-
 }
